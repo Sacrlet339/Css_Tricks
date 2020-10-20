@@ -1,0 +1,67 @@
+<html>
+<head></head>
+    <style>
+        ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li{
+  display:inline-block;
+  clear: both;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.him{
+  background: #eee;
+  float: left;
+}
+
+.me{
+  float: right;
+  background: #0084ff;
+  color: #fff;
+}
+
+.him + .me{
+  border-bottom-right-radius: 5px;
+}
+
+.me + .me{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.me:last-of-type {
+  border-bottom-right-radius: 30px;
+}
+.him + .him{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;       
+}
+.him:last-of-type {
+  border-bottom-left-radius: 30px;
+}
+.me + .him{
+   border-bottom-left-radius: 5px;         
+}
+    </style>
+    
+    <body>
+    <ul>
+ <li class="him">By Other User</li>
+ <li class="him">By Other User</li>
+ <li class="him">By Other User</li>
+ <li class="me">By this User, first message</li>
+ <li class="me">By this User, secondmessage</li>
+ <li class="me">By this User, third message</li>
+ <li class="me">By this User, fourth message</li>
+ <li class="him">By Other User</li>  
+ <li class="him">By Other User</li> 
+</ul>
+    </body>
+</html>
