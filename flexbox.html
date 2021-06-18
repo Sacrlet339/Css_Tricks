@@ -1,86 +1,447 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, intail-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Flexbox</title>
-    </head>
+<html>
+    <head></head>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         .parent{
+            display: grid;
+            place-content: center;
+            background-color: darkgray;
             height: 100vh;
-            border: 20px solid black;
-            display:flex;
-            flex-wrap: wrap;
-            align-items:center;
-            justify-content:space-evenly ;
+            width: 100vw;
         }
-        .child1, .child2 ,.child3,.child4,.child5{
-            width: 200px;
-            height: 200px;
+        .parent > div{
+            background-color: white;
+            height: 50vh;
+            width: 50vw;
         }
-        .child1{
-            background-color:#ff0000;
-            background: rgb(255,102,0);
-            background: linear-gradient(276deg, rgba(255,102,0,1) 23%, rgba(255,0,0,1) 73%);
+        p{
+            position: relative;
+            font-size: 40px;
+        }
+        p:before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            background-color: red;
+            height: 2px;
+            top:0;
+            left: 0;
+        }
+        p:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            background-color: red;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+        }
+        .container{
             display: flex;
-            align-items: center;
-            justify-content:center;
+            background-color: rgb(65, 64, 64);
+            height: 20vh;
+            width: 100vw;
+            place-items: center;
+
+        }
+        .box:nth-child(even){
+            background-color: rgb(158, 204, 248);
+            flex: 1;
+            height: 10vh;
+            display: grid;
+            place-items: center;
+            color:white;
+            font-weight: bold;
+            font-size: 53px;
+        }
+        .box:nth-child(odd){
+            background-color: rgb(35, 144, 245);
+            flex: 1;
+            height: 10vh;
+            display: grid;
+            place-items: center;
+            color:white;
+            font-weight: bold;
+            font-size: 53px;
+        }
+        .box:first-child(){
+            order:2;
+        }
+        .box:nth-child(2){
+            order:3;
+        }
+        .box:last-child(){
+            order:2;
+        }
+        .container2{
+            display: flex;
+            place-items:center;
+            border: 2px solid rgb(119, 2, 155);
+            width: 100vw;
+        }
+        .case{
+            background-color: darkgray; 
+            height: 40vh;
+            width: 50%;
+            display: flex;
+            place-items:center;
+            flex-direction: column;
+        }
+        .case2{
+            background-color: rgb(231, 229, 229); 
+            height: 40vh;
+            width: 50%;
+            display: flex;
+            place-items:center;
+            flex-direction: column;
+        }
+        .drum:nth-child(odd),.drum2:nth-child(even){
+            border:1px solid  rgb(213, 130, 238);
+            background-color: rgb(213, 130, 238);
+            height: 10vh;
+            width: 80%;
+        }
+        .drum:nth-child(even),.drum2:nth-child(odd){
+            border:1px solid  rgb(179, 7, 231);
+            background-color: rgb(179, 7, 231);
+            height: 10vh;
+            width: 80%;
+        }
+        .container3{
+            display: flex;
+            place-items: center;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: 40vh;
+            background-color: rgb(65, 64, 64);
+        }
+        .box3{
+            width: 33.3%;
+            align-items: stretch;
+            height: 50%;
+            justify-content: baseline;
+            font-size: 30px;
+            display: grid;
+            place-items: center;
+        }
+        .box3:nth-child(odd){
+            background-color: #ffa200;
+        }
+        .box3:nth-child(even){
+            background-color: #ff7300;
+        }
+        .table{
+            background-color: white;
+            display: flex;
+            place-items:inherit;
+            flex-direction: column;
+            width: 100%;
+            height: 40vh;
+            place-items: center;
+        }
+        .thead{
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-color: white;
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+        }
+        .thead>.cell{
+            width: 16.6%;
+            border: 1px solid;
+            padding: 23px 15px;
+            font-size: 16px
+        }
+        .tbody{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            border-radius: 0px 0px 10px 10px;
+            height: 85%;
+            overflow-y: auto;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            
+        }
+        .tbody::-webkit-scrollbar {
+        display: none;
+        }
+        .tbody {
+        -ms-overflow-style: none;  
+        scrollbar-width: none; 
+        }
+        .tr{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            border-bottom: 1px solid;
+            height: 40px;
+        }
+        .tr>.cell{
+            padding: 7px 15px;
+            width: 16.6%;
+            border: 1px solid;
+            font-size: 14px;
+        }
+        .cell.del{
+            max-width: 15px;
+        }
+        .parent2{
+            display: flex;
+            background-color: rgb(149, 152, 153);
+            max-width: 100vw;
+            height: 100vh;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            place-items: center;
         }
         .child2{
-            background-color: #ff6600;
-            background: rgb(255,102,0);
-            background: linear-gradient(83deg, rgba(255,102,0,1) 23%, rgba(255,154,0,1) 73%);
-            align-items: center;
+            border: 1px solid;
+            width: 30%;
+            height: 30%;
             display: flex;
-            justify-content:center;
+            flex-direction:row ;
         }
-        .child3{
-            background-color: #ff9a00;
-            background: rgb(255,218,0);
-            background: linear-gradient(270deg, rgba(255,218,0,1) 23%, rgba(255,154,0,1) 73%);
-            align-items: center;
-            display: flex;
-            justify-content:center;
+        .img{
+            width: 50%;
+            height: 100%;
+            border: 1px solid red;
         }
-        .child4{
-            background-color: #ffda00;
-            background: rgb(255,218,0);
-            background: linear-gradient(85deg, rgba(255,218,0,1) 23%, rgba(168,255,0,1) 73%);
-            align-items: center;
-            display: flex;
-            justify-content:center;
+        .img>img{
+            width: 100%;
+            height: 100%;
         }
-        .child5{
-            background-color: #a8ff00;
-            background: rgb(48,255,0);
-            background: linear-gradient(270deg, rgba(48,255,0,1) 23%, rgba(168,255,0,1) 73%);
-            align-items: center;
+        .text{
             display: flex;
-            justify-content:center;
+            flex-direction: column;
+            width: 50%;
+            max-height: 100%;
+            border: 1px solid hotpink;
+            padding: 10px;
+            align-items: flex-start;
+        }
+        .Title{
+            font-weight: bold;
+            font-size: 20px;
+            width: 100%;
+            /* border: limegreen 1px solid; */
+            height: 40px;
+            max-height: 40px;
+        }
+        .description{
+            width: 100%;
+            /* border: limegreen 1px solid; */
+            height: 50px;
+            max-height: 50px;
+        }
+        .author,.date{
+            width: 100%;
+            /* border: limegreen 1px solid; */
+            height: 25px;
+            max-height: 25px;
+        }
+        .btn{
+            display: flex;
+            flex-direction: row;
+            justify-content:flex-end;
+        }
+        button{
+            align-self: flex-end;
+            border-radius: 8px;
+            border: 0;
+            padding: 8px;
         }
     </style>
     <body>
         <div class="parent">
-            <div class="child1">
-                <h1>A</h1>
+            <div>
+                <p>HELLO</p></div>
+        </div>
+
+        <div class="container">
+            <div class="box">Box 1</div>
+            <div class="box">Box 2</div>
+            <div class="box">Box 3</div>
+        </div>
+        <div class="container2"> 
+            <div class="case">
+                <div class="drum"></div>
+                <div class="drum"></div>
+                <div class="drum"></div>
+                <div class="drum"></div>
+            </div>
+            <div class="case2">
+                <div class="drum2"></div>
+                <div class="drum2"></div>
+                <div class="drum2"></div>
+                <div class="drum2"></div>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+            <div class="box3"><p3>Ipsum Lorem</p3></div>
+        </div>
+        <div class="table">
+            <div class="thead">
+                <div class="cell">Vehicle type</div>
+                <div class="cell">Vehicle registration</div>
+                <div class="cell">Date Due</div>
+                <div class="cell">Vendor / Mechanic</div>
+                <div class="cell">Maintenance Type</div>
+                <div class="cell">Status</div>
+                <div class="cell del"></div>
+            </div>
+            <div class="tbody">
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+                <div class="tr">
+                    <div class="cell">Vehicle type</div>
+                    <div class="cell">Vehicle registration</div>
+                    <div class="cell">Date Due</div>
+                    <div class="cell">Vendor / Mechanic</div>
+                    <div class="cell">Maintenance Type</div>
+                    <div class="cell">Status</div>
+                    <div class="cell del">#</div>
+                </div>
+            </div>
+        </div>
+        <div class="parent2">
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
             </div>
             <div class="child2">
-                <h1>K</h1>
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
             </div>
-            <div class="child3">
-                <h1>A</h1>
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
             </div>
-            <div class="child4">
-                <h1>R</h1>
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
             </div>
-            <div class="child5">
-                <h1>U</h1>
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="img"><img src="1.jpg"></div>
+                <div class="text">
+                    <div class="Title">TITLE</div>
+                    <div class="description">ipsum lorem</div>
+                    <div class="author">Jane Doe</div>
+                    <div class="date">2021-06-18</div>
+                    <button>+ Add to Library</button>
+                </div>
             </div>
         </div>
     </body>
