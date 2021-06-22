@@ -253,6 +253,119 @@
             border: 0;
             padding: 8px;
         }
+        .container4{
+            width:100%;
+            display: flex;
+            height: 20vh;
+            flex-direction:column;
+        }
+        .filterTitle{
+            width: 100%;
+            height: 30%;
+            padding: 10px;
+        }
+        .filtersContainer{
+            width: 100%; 
+            display: flex;
+            flex-direction:row;
+            height: 60%;
+            justify-content: flex-start;
+            align-items:center;
+        }
+        .filter{
+            /*border: hotpink 1px solid;*/
+            width: 20%;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction:column;
+        }
+        .filter > label{
+            color: #575757;
+            font-size: 14px;
+            font-family: Medium;
+            font-weight: 700;
+            padding: 0 10px;
+        }
+        .filter .inputs{
+            border: 3px solid #E6E6E6;
+            background-color: #F4F4F4;
+            border-radius: 10px;
+            width: 100%;
+            padding: 4px 10px;
+            font-size: 14px;
+        }
+        select.inputs{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url('../img/Path 39.svg') no-repeat right #ddd;
+            background-repeat: no-repeat;
+            background-position-x: 96%;
+            background-position-y: 10px;
+        }
+        .filterbtn{
+            /*border: hotpink 1px solid;*/
+            width: 20%;
+            height: 100%;
+            /*padding: 10px;*/
+            display: flex;
+            flex-direction:column;
+            justify-content: flex-end;
+        }
+        .filterbtn > .btn{
+            align-self:flex-end;
+            /*margin:0;*/
+        }
+        a.btn, button.btn{
+            background-color: rgb(0,174,229);
+            color: white;
+            float: right;
+            border-radius: 10px;
+            padding: 3px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 20px;
+        }
+        a.btn:hover, a.btn:active, button.btn:hover, button.btn:active{
+            background-color: rgb(87,87,87);
+        }
+        .case3{
+            width: 100%;
+            height: 10vh;
+            background-color: #ccc;
+            display: flex;
+            flex-flow:  row wrap; /*flex-wrap: wrap;
+            flex-direction: row; *********does both in one line*/
+            justify-content: space-between;
+        }
+        .item{
+            font-size: 40px;
+            border: 1px solid;
+        }
+        .item:hover{
+            color:white;
+            background-color: black;
+        }
+        .box2{
+            display: flex;
+            background-color: black;
+            color: white;
+            width: 100%;
+            height: 50vh;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .unit{
+            border: 1px solid white;
+            width: 29%;
+            display: flex;
+            place-items: center;
+            padding: 2%;
+            font-size: 30px;
+        }
+        .unit:hover{
+            color: lime;
+        }
     </style>
     <body>
         <div class="parent">
@@ -444,5 +557,82 @@
                 </div>
             </div>
         </div>
+        <div class="container4">
+            <div class="filterTitle">Filter</div>
+            <div class="filtersContainer">
+                <div class="filter">
+                    <label>Date</label>
+                   <input type="text" name="dates" id="dates" class="textinput search-key inputs" required onchange="four()">
+                </div>
+                <div class="filter">
+                    <label>Vehicle</label>
+                    <select name="vehicle" id="vehicle" class="inputs" onchange="four()">
+                        <option value="%">All</option>
+                            <option value="1">option</option>
+                            <option value="1">option</option>
+                            <option value="1">option</option>
+                            <option value="1">option</option>
+                            <option value="1">option</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label>Order</label>
+                    <select name="order" id="order" class="inputs" onchange="four()">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label>Maintenance Status</label>
+                    <select name="status" id="status" class="inputs" onchange="four()">
+                        <option value="%">All</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Denied">Decline</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Request with finance">Request with finance</option>
+                        <option value="Quote to be reviewed">Quote to be reviewed</option>
+                        <option value="Finance did not load">Finance did not load</option>
+                        <option value="Silas not approved">Silas not approved</option>
+                        <option value="Services Provider">Services Provider</option>
+                        <option value="Vehicle needs Towing">Vehicle needs Towing</option>
+                        <option value="Not drivable">Not drivable</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="filterbtn">
+                    <button class="btn" type="submit">PDF</button>
+                </div>
+            </div>
+    </div>
+    <section class="case3">
+        <div class="item">
+            <x>Ipsum Lorem</x>
+        </div>
+        <div class="item">
+            <x>Ipsum Lorem</x>
+        </div>
+    </section>
+    <div class="box2">
+        <div class="unit"> x </div>
+        <div class="unit"> x </div>
+        <div class="unit"> x </div>
+        <div class="unit"> x </div>
+        <div class="unit"> x </div>
+    </div>
     </body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script>
+ 
+ $('input[name="dates"]').daterangepicker({
+    opens: 'left',
+    "startDate": "2021-06-21",
+    "endDate": "2021-07-21",
+    "locale": {
+        "format": "YYYY-MM-DD",
+        "separator": "~",}
+  });
+</script>
 </html>
