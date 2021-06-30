@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+            *{
+                margin:0;
+                padding: 0
+            }
+            .Container{
+                display: grid;
+                width: 100vw;
+                height: 100vh;
+                background-color: whitesmoke;
+                grid-template-columns: 1fr 6fr;
+                grid-template-rows: .3fr 4fr;
+            }
+            .topNav{
+                background-color: transparent;
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 1;
+                grid-row-end: 2;
+                padding: 10px;
+            }
+            .sidenav{
+                background-color: transparent;
+                grid-row-start: 1;
+                grid-row-end: 5;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                display: grid;
+                width: 94%;
+                height: 98%;
+                padding: 3%;
+                grid-template-columns: 1fr;
+                grid-template-rows: .8fr  .2fr .2fr .2fr .2fr .2fr .2fr 2fr;
+            }
+            .main{
+               
+                grid-column-start: 2;
+                grid-column-end: 7;
+                padding: 3%;
+            }
+            .topNav > div{
+                background-color: white;
+                border-radius: 10px;
+                height: 90%;
+            }
+            .menu{
+                /* border: 1px solid; */
+                list-style: none;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 25px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .menu.logo{
+                justify-content: center;
+                padding-left: 0;
+            }
+            .menu.active{
+                color: white;
+                background-color: black;
+                /* border: 1px solid; */
+            }
+            .menu:hover{
+                border: 1px solid limegreen;
+                color: limegreen;
+                background-color: black;
+            }
+            .menu.logo:hover,.menu.logout:hover{
+                border: 0;
+                color: black;
+                background-color: transparent;
+            }
+            .wrapper{
+                /* border: 1px solid; */
+                height: 100%;
+                box-shadow: 0px 2px 3px #00000083;
+                padding: 15px;
+                background-color: white;
+            }
+            form{
+                display: flex; 
+                flex-direction: column;
+            }
+            .formControl{
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 15px;
+                /* background-color: rgb(0, 255, 115); */
+            }
+            .formControl>label{
+                padding-left: 20px;
+                text-transform: uppercase;
+                font-size: 17px;
+                color: #1F98E9;
+            }
+            .inputs{
+                border: 2px solid rgb(160, 182, 185);
+                padding: 10px 20px;
+                border-radius: 3px;
+                font-size: 15px;
+                color: #115481;
+                margin-left: 1%;
+                width: 90%;
+            }
+            .inputs:focus{
+                border: 3px solid rgb(160, 182, 185);
+            }
+            .btnContainer{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content:flex-end;
+                margin-left:20px;
+                width: 89%;
+            }
+            button{
+                width: 30%;
+                border-radius: 5px;
+                border: 1px solid #1F98E9;
+                padding: 10px 20px;
+                color:#1F98E9;
+                font-weight: bold;
+                background-color: white;
+            }
+            button.save{
+                color: white;
+                border: 1px solid #1F98E9;
+                background-color:#1F98E9;
+            }
+        </style>
+        <div class="Container">
+            <div class="topNav">
+                <div></div>
+            </div>
+            <div class="sidenav">
+                    <li class="menu logo">LOGO</li>
+                    <li class="menu active">News</li>
+                    <li class="menu">History</li>
+                    <li class="menu">Advertisements</li>
+                    <li class="menu">Reports</li>
+                    <li class="menu">User Management</li>
+                    <li class="menu">Documents</li>
+                    <li class="menu logout">Log out</li>
+            </div>
+            <div class="main">
+                <div class="wrapper">
+                    <form>
+                        <div class="formControl">
+                            <label>Title</label>
+                            <input type="text" name="" class="inputs">
+                        </div>
+                        <div class="formControl">
+                            <label>Author</label>
+                            <input type="text" name="" class="inputs">
+                        </div>
+                        <div class="formControl">
+                            <label>Genre</label>
+                            <input type="text" name="" class="inputs">
+                        </div>
+                        <div class="formControl">
+                            <label>Monetary Value</label>
+                            <input type="text" name="" class="inputs">
+                        </div>
+                        <div class="formControl">
+                            <label>Article</label>
+                            <textarea type="text" name="" class="inputs" rows="10"></textarea>
+                        </div>
+                        <div class="formControl">
+                            <label>Article Summary</label>
+                            <textarea type="text" name="" class="inputs" rows="5"></textarea>
+                        </div>
+                        <div class="formControl">
+                            <label>Cover Image</label>
+                            <input type="text" name="" class="inputs">
+                        </div>
+                        <div class="formControl btnContainer">
+                            <button>Delete</button>
+                            <button>Cancel</button>
+                            <button class="save">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
