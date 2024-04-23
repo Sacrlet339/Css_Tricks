@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Css themeing sample</title>
+        <meta name="description" content="A simple HTML5 Template for new projects.">
+        <meta name="author" content="SitePoint">
+        
+        <meta property="og:title" content="A Basic HTML5 Template">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+        <meta property="og:description" content="A simple HTML5 Template for new projects.">
+        <meta property="og:image" content="image.png">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    </head>
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+          border: 0;
+          box-sizing: border-box;
+        }
+
+        .container {
+          width: 650px;
+          height: 350px;
+          margin: 50px;
+          padding: 15px;
+        }
+
+        .item {
+          width: 100%;
+          height: 100%;
+        }
+          
+        .slick-arrow {
+          height: 40px;
+          width: 40px;
+          position: absolute;
+        }
+
+        .slick-arrow::before {
+          color: black;
+        }
+
+        .slick-next {
+          right: -40px;
+        }
+
+        .slick-prev {
+          left: -40px;
+        }
+
+    </style>
+    <body>
+        <div class="container">
+          <div class="slider">
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+            <div class="item"><img src="https://picsum.photos/650/350"></div>
+          </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+    <script>
+        $(document).ready(function(){
+            console.log("here");
+            $('.slider').slick({
+              dots: true,
+              infinite: false,
+              speed: 300,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+            });
+        });
+        
+    </script>
+</html>
